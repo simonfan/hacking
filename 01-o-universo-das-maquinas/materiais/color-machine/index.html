@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>color machine</title>
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+
+  <!-- styles -->
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+  <!-- our elements -->
+  <link rel="import" href="elements/ace-editor/ace-editor.html">
+  <link rel="import" href="elements/color-canvas/color-canvas.html">
+
+  <style type="text/css">
+    #monospace {
+      font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <template id="m" is="dom-bind">
+
+    <span id="monospace">s</span>
+
+    <div id="workspace">
+
+
+
+      <color-canvas
+        id="canvas"
+        value="{{ value }}"
+        columns="{{ columns }}"
+        char-width="{{ charWidth }}"
+        char-height="{{ charHeight }}"
+        height="{{ editorHeight }}"
+        width="{{ editorWidth }}">
+      </color-canvas>
+
+      <ace-editor
+        id="text-editor"
+        value="{{ value }}"
+        font-size="50"
+        columns="{{ columns }}"
+        rows="{{ rows }}"
+        editor-height="{{ editorHeight }}"
+        editor-width="{{ editorWidth }}"
+        char-width="{{ charWidth }}"
+        char-height="{{ charHeight }}"
+        hidden$="{{ hideEditor }}">
+
+      </ace-editor>
+    </div>
+
+    <label>
+      <input type="checkbox" checked="{{ hideEditor::change }}">
+      hide editor
+    </label>
+
+
+  </template>
+
+  <script src="index.js"></script>
+
+</body>
+</html>

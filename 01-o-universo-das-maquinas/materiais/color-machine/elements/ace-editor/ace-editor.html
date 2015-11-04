@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="../../bower_components/ace-builds/src-noconflict/ace.js"></script>
+
+<dom-module id="ace-editor">
+
+  <template>
+    <style>
+      #editor {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    </style>
+
+    <!-- html node for the editor -->
+    <div id="editor"></div>
+  </template>
+
+  <script src="ace-editor.js"></script>
+
+</dom-module>

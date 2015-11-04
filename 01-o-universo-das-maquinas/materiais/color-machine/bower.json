@@ -1,0 +1,21 @@
+{
+  "name": "o-universo-das-maquinas",
+  "version": "0.0.0",
+  "homepage": "https://github.com/simonfan/hacking",
+  "authors": [
+    "Simon <simonxd@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ace-builds": "https://github.com/ajaxorg/ace-builds.git#~1.2.2",
+    "paper": "~0.9.25",
+    "polymer": "~1.2.1"
+  }
+}
