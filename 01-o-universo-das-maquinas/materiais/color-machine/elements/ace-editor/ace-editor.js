@@ -8,27 +8,27 @@
       value: {
         type: String,
         notify: true,
-        value: '',
+        value: Array(25 * 7).join("1"),
       },
 
       columns: {
         type: Number,
         notify: true,
-        value: 10,
+        value: 25,
         observer: '_handleDimensionsChange',
       },
 
       rows: {
         type: Number,
         notify: true,
-        value: 5,
+        value: 7,
         observer: '_handleDimensionsChange',
       },
 
       fontSize: {
         type: Number,
         notify: true,
-        value: 40,
+        value: 20,
         observer: '_handleDimensionsChange',
       },
 
@@ -94,9 +94,12 @@
 
       console.log('_handleDimensionsChange')
 
-      editor.setFontSize(this.get('fontSize') + 'px');
+      editor.setFontSize(this.get('fontSize'));
 
-      var input = Polymer.dom(this.$.editor).querySelector('.ace_text-input');
+      // tell ace-edit to recalculate stuff
+      this.editor.resize(true);
+
+      var input = Polymer.dom(this.$.editor).querySelector('.ace_cursor');
 
       this.set('charWidth', input.offsetWidth);
       this.set('charHeight', input.offsetHeight);
@@ -155,8 +158,7 @@
 
       // set value
       this.set('value', editor.getValue());
-    }
-
+    },
   });
 
 })();

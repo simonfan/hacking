@@ -48,7 +48,6 @@
     },
 
     _handleValueChange: function (value, old) {
-      console.log(value);
 
       var splitRegExp = new RegExp('.{1,' + this.get('columns') + '}', 'g');
 
@@ -57,21 +56,9 @@
       var charWidth  = this.get('charWidth');
       var charHeight = this.get('charHeight');
 
-      // clean up canvas.. this is not the paper way but who cares?
-      if (paper.project && paper.project.activeLayer) {
-        paper.project.activeLayer.removeChildren();
-      }
+      this.clear();
 
       var colorMapping = this.get('colorMapping');
-
-      // console.log(this.width)
-
-      // var canvas = this.$.canvas
-      // canvas.width  = this.width + 'px';
-      // canvas.height = this.height + 'px';
-
-      // console.log('charWidth', this.get('charWidth'));
-      // console.log('charHeight', this.get('charHeight'));
 
       // draw for each line
       lines.forEach(function (lineContents, lineIndex) {
@@ -96,8 +83,7 @@
 
       // draw at end
       if (paper.view) {
-      paper.view.draw();
-
+        paper.view.draw();
       }
     },
 
@@ -106,6 +92,18 @@
       var canvas = this.$.canvas
       // Create an empty project and a view for the canvas:
       paper.setup(canvas);
+    },
+
+    clear: function () {
+      // clean up canvas.. this is not the paper way but who cares?
+      if (paper.project && paper.project.activeLayer) {
+        paper.project.activeLayer.removeChildren();
+      }
+
+      var canvas = this.$.canvas;
+
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
     }
   })
 })();

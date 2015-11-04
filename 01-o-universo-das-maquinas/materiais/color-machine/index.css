@@ -13,7 +13,7 @@ body {
   width: 600px;
   height: 500px;
 
-  border: 1px dashed #eee;
+  border: 3px dashed cyan;
 }
 
 #text-editor {

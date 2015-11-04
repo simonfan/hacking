@@ -12,24 +12,11 @@
   <link rel="import" href="elements/ace-editor/ace-editor.html">
   <link rel="import" href="elements/color-canvas/color-canvas.html">
 
-  <style type="text/css">
-    #monospace {
-      font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
-
-      font-size: 30px;
-    }
-  </style>
 </head>
 <body>
 
   <template id="m" is="dom-bind">
-
-    <span id="monospace">s</span>
-
     <div id="workspace">
-
-
-
       <color-canvas
         id="canvas"
         value="{{ value }}"
@@ -43,7 +30,7 @@
       <ace-editor
         id="text-editor"
         value="{{ value }}"
-        font-size="50"
+        font-size="{{ fontSize }}"
         columns="{{ columns }}"
         rows="{{ rows }}"
         editor-height="{{ editorHeight }}"
@@ -55,10 +42,19 @@
       </ace-editor>
     </div>
 
-    <label>
-      <input type="checkbox" checked="{{ hideEditor::change }}">
-      hide editor
-    </label>
+    <section id="control">
+
+      <label>
+        <input type="checkbox" checked="{{ hideEditor::change }}">
+        hide editor
+      </label>
+
+      <input value="{{ columns::input }}" placeholder="columns">
+      <input value="{{ rows::input }}" placeholder="rows">
+      <!-- <input value="{{ fontSize::input }}" placeholder="fontSize"> -->
+
+    </section>
+
 
 
   </template>
